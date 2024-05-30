@@ -91,7 +91,7 @@ moniker = "{{ .BaseConfig.Moniker }}"
 # allows them to catchup quickly by downloading blocks in parallel
 # and verifying their commits
 #
-# Deprecated: this key will be removed and BlockSync will be enabled 
+# Deprecated: this key will be removed and BlockSync will be enabled
 # unconditionally in the next major release.
 block_sync = {{ .BaseConfig.BlockSyncMode }}
 
@@ -241,6 +241,8 @@ experimental_close_on_slow_client = {{ .RPC.CloseOnSlowClient }}
 # global HTTP write timeout, which applies to all connections and endpoints.
 # See https://github.com/tendermint/tendermint/issues/3435
 timeout_broadcast_tx_commit = "{{ .RPC.TimeoutBroadcastTxCommit }}"
+
+read_timeout = "{{ .RPC.ReadTimeout }}"
 
 # Maximum size of request body, in bytes
 max_body_bytes = {{ .RPC.MaxBodyBytes }}
@@ -447,7 +449,7 @@ chunk_fetchers = "{{ .StateSync.ChunkFetchers }}"
 [blocksync]
 
 # Block Sync version to use:
-# 
+#
 # In v0.37, v1 and v2 of the block sync protocols were deprecated.
 # Please use v0 instead.
 #

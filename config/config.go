@@ -416,6 +416,8 @@ type RPCConfig struct {
 	// See https://github.com/tendermint/tendermint/issues/3435
 	TimeoutBroadcastTxCommit time.Duration `mapstructure:"timeout_broadcast_tx_commit"`
 
+	ReadTimeout time.Duration `mapstructure:"read_timeout"`
+
 	// Maximum size of request body, in bytes
 	MaxBodyBytes int64 `mapstructure:"max_body_bytes"`
 
@@ -461,6 +463,7 @@ func DefaultRPCConfig() *RPCConfig {
 		MaxSubscriptionsPerClient: 5,
 		SubscriptionBufferSize:    defaultSubscriptionBufferSize,
 		TimeoutBroadcastTxCommit:  10 * time.Second,
+		ReadTimeout:               10 * time.Second,
 		WebSocketWriteBufferSize:  defaultSubscriptionBufferSize,
 
 		MaxBodyBytes:   int64(1000000), // 1MB
